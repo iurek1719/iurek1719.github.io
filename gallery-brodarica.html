@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery Brodarica</title>
+
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+
+
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    /* Add basic styles for the flag dropdown */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      color: black;
+      padding: 8px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+ 
+.imagesbox{
+    position: relative;
+    top: 100px;
+}
+  </style>
+<body class="">
+
+<header class="text-white bg-gray-900 fixed w-full z-50">
+    <nav class="container mx-auto flex justify-between items-center">
+        <h1 class="text-3xl font-bold">Villa Inizio</h1>
+
+        <div class="flex items-center space-x-6">
+            <button id="mobile-menu-toggle" class="block md:hidden focus:outline-none text-white">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <ul class="hidden md:flex space-x-6 items-center">
+                <li class="relative group">
+                    <a href="#home" class="hover:text-blue-500 transition">Home</a>
+                    <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
+                </li>
+                <li class="relative group">
+                    <a href="#about" class="hover:text-blue-500 transition">About</a>
+                    <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
+                </li>
+                <li class="relative group">
+                    <a href="#gallery" class="hover:text-blue-500 transition">Gallery</a>
+                    <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
+                </li>
+                <li class="relative group">
+                    <a href="#info" class="hover:text-blue-500 transition">Island Info</a>
+                    <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
+                </li>
+                <li class="relative group">
+                    <a href="#contact" class="hover:text-blue-500 transition">Contact</a>
+                    <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
+                </li>
+                <div class="dropdown">
+                  <button class="focus:outline-none">
+                    <img id="current-flag" src="./imgs/flags/uk.png" alt="English Flag" class="w-8 h-8 rounded-full">
+                  </button>
+                  <div class="dropdown-content">
+                    <a href="#" onclick="changeLanguage('en','./imgs/flags/uk.png')">
+                      <img src="./imgs/flags/uk.png" alt="English Flag" class="inline-block w-6 h-6"> English
+                    </a>
+                    <a href="#" onclick="changeLanguage('hr','./imgs/flags/croatia.png')">
+                      <img src="./imgs/flags/croatia.png" alt="Croatian Flag" class="inline-block w-6 h-6"> Croatian
+                    </a>
+                    <a href="#" onclick="changeLanguage('de','./imgs/flags/ger.png')">
+                      <img src="./imgs/flags/ger.png" alt="German Flag" class="inline-block w-6 h-6"> German
+                    </a>
+                    </a>
+                  </div>
+                </div>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-95 p-8 hidden z-40 flex items-center justify-center transform transition-transform duration-300 ease-in-out">
+        <button id="close-menu" class="absolute top-5 right-5 text-white">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <ul class="flex flex-col items-center space-y-8 text-2xl text-white">
+            <ul class="flex flex-col items-center space-y-8 text-2xl text-white">
+                <li><a href="./index.html" class="hover:text-blue-500 transition">Home</a></li>
+                <li><a href="./about.html" class="hover:text-blue-500 transition">About</a></li>
+                <li><a href="./gallery-brodarica.html" class="hover:text-blue-500 transition">Gallery</a></li>
+                <li><a href="#info" class="hover:text-blue-500 transition">Island Info</a></li>
+                <li><a href="#contact" class="hover:text-blue-500 transition">Contact</a></li>
+           
+            <div class="dropdown">
+              <button class="focus:outline-none">
+                <img id="current-flag" src="./imgs/flags/uk.png" alt="English Flag" class="w-8 h-8 rounded-full">
+              </button>
+              <div class="dropdown-content">
+                <a href="#" onclick="changeLanguage('en','./imgs/flags/uk.png')">
+                  <img src="./imgs/flags/uk.png" alt="English Flag" class="inline-block w-6 h-6"> English
+                </a>
+                <a href="#" onclick="changeLanguage('hr','./imgs/flags/croatia.png')">
+                  <img src="./imgs/flags/croatia.png" alt="Croatian Flag" class="inline-block w-6 h-6"> Croatian
+                </a>
+                <a href="#" onclick="changeLanguage('de','./imgs/flags/ger.png')">
+                  <img src="./imgs/flags/ger.png" alt="German Flag" class="inline-block w-6 h-6"> German
+                </a>
+              </div>
+            </div>
+        </ul>
+    </div>
+</header>
+
+
+
+<section class="imagesbox flex flex-col items-center p-6 ">
+
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-5xl">
+    <div>
+      <img src="./imgs/house/DSC_0548.jpeg" alt="Gallery Image 1" class="w-full h-64 object-cover  hover:scale-105 duration-300  shadow-md cursor-pointer" onclick="openLightbox(0)">
+    </div>
+    <div>
+      <img src="./imgs/house/DSC_0565.jpeg" alt="Gallery Image 2" class="w-full h-64 object-cover   hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(1)">
+    </div>
+    <div>
+      <img src="./imgs/house/DSC_0687.jpeg" alt="Gallery Image 3" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(2)">
+    </div>
+    <div>
+      <img src="./imgs/house/DSC_0725.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(3)">
+    </div>
+
+    <div>
+        <img src="./imgs/house/DSC_0750.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(4)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0758.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(5)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0774.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(6)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0775.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(7)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0781.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(8)">
+      </div>
+
+      <div>
+        <img src="./imgs/house//DSC_0783.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(9)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0787.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(10)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0790.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+      <div>
+        <img src="./imgs/house/DSC_0800.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0800.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0800.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0818.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0820.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0845.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0875.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0892.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0912.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0919.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0924.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0931.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0932.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0935.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0936.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0940.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0944.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0950.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+      <div>
+        <img src="./imgs/house/DSC_0952.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0957.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_0962.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+
+      <div>
+        <img src="./imgs/house/DSC_1089.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+      <div>
+        <img src="./imgs/house/DSC_1095.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+      <div>
+        <img src="./imgs/house/DSC_1098.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+      <div>
+        <img src="./imgs/house/DSC_1104.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+      <div>
+        <img src="./imgs/house/DSC_1154.jpeg" alt="Gallery Image 4" class="w-full h-64 object-cover  hover:scale-105 duration-300 shadow-md cursor-pointer" onclick="openLightbox(11)">
+      </div>
+  </div>
+
+  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center hidden z-50">
+    <button class="absolute top-4 right-4 text-white text-3xl font-bold" onclick="closeLightbox()">×</button>
+    <button class="absolute left-4 text-white text-2xl font-bold" onclick="prevImage()">&#10094;</button>
+    <img id="lightboxImage" src="" alt="Enlarged Image" class="w-auto max-h-full ">
+    <button class="absolute right-4 text-white text-2xl font-bold" onclick="nextImage()">&#10095;</button>
+  </div>
+
+  <script>
+    const images = [
+      "./imgs/house/DSC_0548.jpeg",
+      "./imgs/house/DSC_0565.jpeg",
+      "./imgs/house/DSC_0687.jpeg",
+      "./imgs/house/DSC_0725.jpeg",
+      "./imgs/house/DSC_0750.jpeg",
+      "./imgs/house/DSC_0758.jpeg",
+      "./imgs/house/DSC_0774.jpeg",
+      "./imgs/house/DSC_0775.jpeg",
+      "./imgs/house/DSC_0781.jpeg",
+      "./imgs/house/DSC_0783.jpeg",
+      "./imgs/house/DSC_0787.jpeg",
+      "./imgs/house/DSC_0790.jpeg",
+    ];
+    
+
+    function openLightbox(index) {
+      currentIndex = index;
+      document.getElementById('lightboxImage').src = images[currentIndex];
+      document.getElementById('lightbox').classList.remove('hidden');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.add('hidden');
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      document.getElementById('lightboxImage').src = images[currentIndex];
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      document.getElementById('lightboxImage').src = images[currentIndex];
+    }
+  </script>
+
+  <script src="./js/functions.js"></script>
+</section>
+</body>
+</html>

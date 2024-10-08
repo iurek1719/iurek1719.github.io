@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxury Villa in Brodarica</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+
+
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant&display=swap" rel="stylesheet">
+
+  
+  <style>
+    /* Add basic styles for the flag dropdown */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      color: black;
+      padding: 8px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+ 
+
+  </style>
+</head>
+<body class="">
+
+  <!-- Navbar -->
+
+
+
+
+
+
+
+
+  <header class="text-white bg-gray-900 fixed w-full z-50">
+    <nav class="container mx-auto flex justify-between items-center">
+        <!-- Left Side - Title -->
+        <h1 class="text-3xl font-bold">Villa Inizio</h1>
+
+        <!-- Right Side - Navigation Links and Mobile Menu Button -->
+        <div class="flex items-center space-x-6">
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-toggle" class="block md:hidden focus:outline-none text-white">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-6 items-center">
+                <li class="relative group">
+                    <a href="./index.html" class="hover:text-blue-500 transition active">Home</a>
+                    <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
+                </li>
+
+                <li class="relative group">
+                    <a href="./about.html" class="hover:text-blue-500 transition">About</a>
+                    <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
+                </li>
+                <li class="relative group">
+                    <a href="./gallery.html" class="hover:text-blue-500 transition">Gallery</a>
+                    <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
+                </li>
+                <li class="relative group">
+                    <a href="#info" class="hover:text-blue-500 transition">Island Info</a>
+                    <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
+                </li>
+                <li class="relative group">
+                    <a href="#contact" class="hover:text-blue-500 transition">Contact</a>
+                    <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
+                </li>
+                <div class="dropdown">
+                  <button class="focus:outline-none">
+                    <img id="current-flag" src="./imgs/flags/uk.png" alt="English Flag" class="w-8 h-8 rounded-full">
+                  </button>
+                  <div class="dropdown-content">
+                    <a href="#" onclick="changeLanguage('en','./imgs/flags/uk.png')">
+                      <img src="./imgs/flags/uk.png" alt="English Flag" class="inline-block w-6 h-6"> English
+                    </a>
+                    <a href="#" onclick="changeLanguage('hr','./imgs/flags/croatia.png')">
+                      <img src="./imgs/flags/croatia.png" alt="Croatian Flag" class="inline-block w-6 h-6"> Croatian
+                    </a>
+                    <a href="#" onclick="changeLanguage('de','./imgs/flags/ger.png')">
+                      <img src="./imgs/flags/ger.png" alt="German Flag" class="inline-block w-6 h-6"> German
+                    </a>
+                    </a>
+                  </div>
+                </div>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Full-Screen Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-95 p-8 hidden z-40 flex items-center justify-center transform transition-transform duration-300 ease-in-out">
+        <button id="close-menu" class="absolute top-5 right-5 text-white">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <ul class="flex flex-col items-center space-y-8 text-2xl text-white">
+          <ul class="flex flex-col items-center space-y-8 text-2xl text-white">
+            <li><a href="./index.html" class="hover:text-blue-500 transition">Home</a></li>
+            <li><a href="./about.html" class="hover:text-blue-500 transition">About</a></li>
+            <li><a href="./gallery-brodarica.html" class="hover:text-blue-500 transition">Gallery</a></li>
+            <li><a href="#info" class="hover:text-blue-500 transition">Island Info</a></li>
+            <li><a href="#contact" class="hover:text-blue-500 transition">Contact</a></li>
+           
+            <div class="dropdown">
+              <button class="focus:outline-none">
+                <img id="current-flag" src="./imgs/flags/uk.png" alt="English Flag" class="w-8 h-8 rounded-full">
+              </button>
+              <div class="dropdown-content">
+                <a href="#" onclick="changeLanguage('en','./imgs/flags/uk.png')">
+                  <img src="./imgs/flags/uk.png" alt="English Flag" class="inline-block w-6 h-6"> English
+                </a>
+                <a href="#" onclick="changeLanguage('hr','./imgs/flags/croatia.png')">
+                  <img src="./imgs/flags/croatia.png" alt="Croatian Flag" class="inline-block w-6 h-6"> Croatian
+                </a>
+                <a href="#" onclick="changeLanguage('de','./imgs/flags/ger.png')">
+                  <img src="./imgs/flags/ger.png" alt="German Flag" class="inline-block w-6 h-6"> German
+                </a>
+              </div>
+            </div>
+        </ul>
+    </div>
+</header>
+
+
+
+
+
+
+
+<div id="home default-carousel" class="relative w-full" data-carousel="slide">
+  <!-- Carousel wrapper -->
+  <div class="relative h-56 sm:h-56 md:h-96 lg:h-[45rem] overflow-hidden">
+    <!-- Item 1 -->
+      <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img src="./imgs/house/DSC_1139.jpeg" class="absolute block w-full h-auto  -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 " alt="...">
+      </div>
+      <!-- Item 2 -->
+      <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img src="./imgs/house/DSC_1154.jpeg" class="absolute block w-full h-auto  -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 " alt="...">
+      </div>
+      <div class="hidden duration-700 ease-in-out" data-carousel-item>
+        <img src="./imgs/house/DSC_0565.jpeg" class="absolute block w-full h-auto  -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 " alt="...">
+    </div>
+    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+      <img src="./imgs/house/DSC_1154.jpeg" class="absolute block w-full h-auto  -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 " alt="...">
+  </div>
+
+  </div>
+  <!-- Slider indicators -->
+  <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+  </div>
+  <!-- Slider controls -->
+  <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+      <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+          <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+              <path stroke="#143c63" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+          </svg>
+          <span class="sr-only">Previous</span>
+      </span>
+  </button>
+  <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+      <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+          <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+          </svg>
+          <span class="sr-only">Next</span>
+      </span>
+  </button>
+</div>
+</section>
+
+
+
+  <!-- About Section -->
+  <section id="about" class="py-16 bg-white">
+    <div class="container mx-auto text-center px-20">
+      <div>
+      <h2 id="about-title" class="text-4xl font-semibold mb-4">About Villa Inizio</h2>
+      
+      <!-- Wavy Line -->
+      <svg width="100%" height="80" viewBox="0 0 1440 50" class="mx-auto mb-6">
+        <path d="M0 25 Q 100 0, 200 25 T 400 25 T 600 25 T 800 25 T 1000 25 T 1200 25 T 1400 25" stroke="#3b82f6" stroke-width="4" fill="transparent" />
+      </svg>
+    </div>
+      <p id="about-text" class="text-lg leading-relaxed text-gray-600">
+        Modern, Villa Inizio (built 2021), 250 m from the sea, 250 m from the beach. Private property: 
+        700 m², swimming pool (7 x 3 m, 27 m², depth 150 cm, seasonal availability: 15 May - 15 Oct) 
+        with internal staircase. Outdoor shower, barbecue. In the house: internet access, washing machine. 
+        Motor access to the house (50 m via unmade road). Parking (for 3 cars) at the house on the premises. 
+        Shop 250 m, restaurant 260 m, pebble beach 250 m, public bathing area 900 m. Marina 4 km. 
+        Nearby attractions: Aquapark 2 km, NP Krka 17 km.
+      </p>
+    </div>
+      <div class="flex items-center justify-center h-screen p-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="relative overflow-hidden] transition-transform duration-300 ease-in-out transform hover:scale-105">
+                <div class="bg-cover bg-center h-96 max-sm:w-56    lg:w-[35rem] sm:w-56" style="background-image: url('./imgs/nature/shutterstock_1637936695.jpg');">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent">
+
+                    <div class="flex items-center justify-center h-full bg-black bg-opacity-10">
+                        <a href="/.island.html" class="text-white text-2xl font-bold">Brodarica</a>
+                        
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class=" relative overflow-hidden  transition-transform duration-300 ease-in-out transform hover:scale-105">
+                <div class="bg-cover bg-center h-96 xs:min-md:w-56  lg:w-[35rem] sm:w-56" style="background-image: url('./imgs/house/DSC_1154.jpeg');">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent">
+
+                    <div class="flex items-center justify-center h-full bg-black bg-opacity-10" >
+                        <a href="./about.html" class="text-white text-2xl font-bold">Villa Inizio</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+     </div>
+  </section>
+
+    <div class="relative h-[32rem] bg-cover bg-center mb-10" style="background-image: url('./imgs/nature/sibenik-e1553012313416.jpg');">
+      <!-- Transparent Overlay -->
+      <div class="absolute inset-0 bg-[#50749c] opacity-70"></div>
+      
+      <!-- Content on top of the overlay -->
+      <div class="relative z-10 flex items-center justify-center h-full">
+        <div class="text-white about-brodarica-text md:ml-80 md:mr-80 lg:ml-80 lg:mr-80">
+
+        <h1 class="text-center pb-3 text-3xl">Villa Inizio – Brodarica, Croatia</h1>
+       
+        <p>
+          Small, quiet, family-friendly resort with 3&#39;000 inhabitants, in the southern part of the region,
+          directly by the sea, 5 km south from Sibenik, 15 km south-east from Vodice, 19 km north
+          from Primosten. All shops, restaurants etc. in the resort. Indoor aquatic centre, wellness
+          centre, sauna, solarium, massage at 2 - 5 km. More possibilities for shopping and
+          entertainment 2 - 5 km.</p>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <section id="contact-info" class="flex items-center justify-center py-16 ">
+      <div class="text-center px-6">
+        <h2 class="text-3xl font-semibold mb-6">Contact Us</h2>
+        <p class="text-lg mb-4">Feel free to reach out to us for any inquiries!</p>
+        
+        <div class="flex flex-col items-center">
+          <div class="mb-4">
+            <span class="font-bold text-lg">Email:</span>
+            <a href="mailto:info@villainizio.com" class="text-blue-500 hover:underline">inizio.info1@gmail.com</a>
+          </div>
+          <div>
+            <span class="font-bold text-lg">Phone:</span>
+            <a href="tel:+1234567890" class="text-blue-500 hover:underline">+1 (234) 567-890</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  <!-- More sections... -->
+
+  <footer class="bg-gray-900 text-center text-white py-6">
+    <p>&copy; 2024 Villa Inizio. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Language Switching -->
+  <script>
+    const translations = {
+      en: {
+        heroSubtitle: 'Experience the ultimate seaside getaway in beautiful Sibenik.',
+        bookNow: 'Book Now',
+        aboutTitle: 'About Villa Inizio',
+        aboutText: 'Modern, villa Inizio(build 2021), 250 m from the sea, 250 m from the beach. Private: property 700 m2, swimming pool angular (7 x 3 m, 27 m2, depth 150 cm, seasonal availability: 15.May. - 15.Oct.) with internal staircase. Outdoor shower, barbecue. In the house: internet access, washing machine. Motor access to the house (50 m via unmade road). Parking (for 3 cars) at the house on the premises. Shop 250 m, restaurant 260 m, pebble beach 250 m, public bathing area 900 m. Marina 4 km. Nearby attractions: Aquapark 2 km, NP Krka 17 km.'
+      },
+      hr: {
+        heroSubtitle: 'Doživite vrhunski odmor uz more u prekrasnom Šibeniku.',
+        bookNow: 'Rezerviraj Sada',
+        aboutTitle: 'O Vili Inizio',
+        aboutText: 'Moderna, vila Inizio(izgrađena 2021), 250 m od mora, 250 m od plaže. Za samostalno korištenje: parcela 700 m2, bazen pravokutni (7 x 3 m, 27 m2, 150 cm dubok, sezonska dostupnost: 15.Svi. - 15.Lis.) s unutarnjim stepenicama. Vanjski tuš, roštilj. U kući: pristup internetu, perilica za rublje. Prilaz autom do kuće (50 m bijela cesta). Parking (za 3 automobila) uz kuću na parceli. Trgovina 250 m, restoran 260 m, šljunčana plaža 250 m, kupalište 900 m. Marina 4 km. U blizini: Aquapark 2 km, NP Krka 17 km.'
+      }
+      ,
+      de:{
+        heroTitle: 'Luksuzna Vila u Brodarici',
+        heroSubtitle: 'Doživite vrhunski odmor uz more u prekrasnom Šibeniku.',
+        bookNow: 'Rezerviraj Sada',
+        aboutTitle: 'O Vili Inizio',
+        aboutText: "Moderne, Villa Inizio (gebaut 2021), 250 m vom Meer, 250 m vom Strand. Zur Alleinbenutzung: Grundstück 700 m2, Schwimmbad eckig (7 x 3 m, 27 m2, 150 cm tief, saisonale Verfügbarkeit: 15.Mai. - 15.Okt.) mit Innentreppe. Aussendusche, Grill. Im Hause: Internetzugang, Waschmaschine. Zufahrt bis zum Haus (50 m Naturweg). Parkplatz (für 3 Autos) beim Haus auf dem Grundstück. Einkaufsgeschäft 250 m, Restaurant 260 m, Kieselstrand 250 m, Strandbad 900 m. Jacht-Hafen 4 km. Nahe gelegene Sehenswürdigkeiten: Aquapark 2 km, NP Krka 17 km."
+      }
+    };
+
+
+
+  </script>
+  <script src="./js/functions.js"></script>
+</body>
+</html>

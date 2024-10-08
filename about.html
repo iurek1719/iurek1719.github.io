@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Villa Reservation Layout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+  </head>
+
+  <style>
+    body{
+      font-family: "Cormorant", serif;
+  font-optical-sizing: auto;
+    }
+        .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      color: black;
+      padding: 8px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+    #map {
+            height: 400px; 
+            width: 100%; 
+        }
+  </style>
+<body>
+
+    <header class="text-white bg-gray-900 fixed w-full z-50">
+        <nav class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold">Villa Inizio</h1>
+    
+            <div class="flex items-center space-x-6">
+                <button id="mobile-menu-toggle" class="block md:hidden focus:outline-none text-white">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+    
+                <ul class="hidden md:flex space-x-6 items-center">
+                    <li class="relative group">
+                        <a href="#home" class="hover:text-blue-500 transition">Home</a>
+                        <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
+                    </li>
+                    <li class="relative group">
+                        <a href="#about" class="activehover:text-blue-500 transition active">About</a>
+                        <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
+                    </li>
+                    <li class="relative group">
+                        <a href="#gallery" class="hover:text-blue-500 transition">Gallery</a>
+                        <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
+                    </li>
+                    <li class="relative group">
+                        <a href="#info" class="hover:text-blue-500 transition">Island Info</a>
+                        <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
+                    </li>
+                    <li class="relative group">
+                        <a href="#contact" class="hover:text-blue-500 transition">Contact</a>
+                        <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
+                    </li>
+                    <div class="dropdown">
+                      <button class="focus:outline-none">
+                        <img id="current-flag" src="./imgs/flags/uk.png" alt="English Flag" class="w-8 h-8 rounded-full">
+                      </button>
+                      <div class="dropdown-content">
+                        <a href="#" onclick="changeLanguage('en','./imgs/flags/uk.png')">
+                          <img src="./imgs/flags/uk.png" alt="English Flag" class="inline-block w-6 h-6"> English
+                        </a>
+                        <a href="#" onclick="changeLanguage('hr','./imgs/flags/croatia.png')">
+                          <img src="./imgs/flags/croatia.png" alt="Croatian Flag" class="inline-block w-6 h-6"> Croatian
+                        </a>
+                        <a href="#" onclick="changeLanguage('de','./imgs/flags/ger.png')">
+                          <img src="./imgs/flags/ger.png" alt="German Flag" class="inline-block w-6 h-6"> German
+                        </a>
+                        </a>
+                      </div>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    
+        <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-95 p-8 hidden z-40 flex items-center justify-center transform transition-transform duration-300 ease-in-out">
+            <button id="close-menu" class="absolute top-5 right-5 text-white">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <ul class="flex flex-col items-center space-y-8 text-2xl text-white">
+              <ul class="flex flex-col items-center space-y-8 text-2xl text-white">
+                <li><a href="./index.html" class="hover:text-blue-500 transition">Home</a></li>
+                <li><a href="./about.html" class="hover:text-blue-500 transition">About</a></li>
+                <li><a href="./gallery-brodarica.html" class="hover:text-blue-500 transition">Gallery</a></li>
+                <li><a href="#info" class="hover:text-blue-500 transition">Island Info</a></li>
+                <li><a href="#contact" class="hover:text-blue-500 transition">Contact</a></li>
+                <div class="dropdown">
+                  <button class="focus:outline-none">
+                    <img id="current-flag" src="./imgs/flags/uk.png" alt="English Flag" class="w-8 h-8 rounded-full">
+                  </button>
+                  <div class="dropdown-content">
+                    <a href="#" onclick="changeLanguage('en','./imgs/flags/uk.png')">
+                      <img src="./imgs/flags/uk.png" alt="English Flag" class="inline-block w-6 h-6"> English
+                    </a>
+                    <a href="#" onclick="changeLanguage('hr','./imgs/flags/croatia.png')">
+                      <img src="./imgs/flags/croatia.png" alt="Croatian Flag" class="inline-block w-6 h-6"> Croatian
+                    </a>
+                    <a href="#" onclick="changeLanguage('de','./imgs/flags/ger.png')">
+                      <img src="./imgs/flags/ger.png" alt="German Flag" class="inline-block w-6 h-6"> German
+                    </a>
+                  </div>
+                </div>
+            </ul>
+        </div>
+    </header>
+
+    <div class="w-full h-[30vh] md:h-[65vh] lg:h-[80vh] bg-cover bg-center" style="background-image: url('./imgs/house/DSC_1154.jpeg');">
+  </div>
+
+
+         <div class="block md:grid md:grid-cols-2 grid-rows-1 gap-5  m-10 ">
+          <div>
+    <div class="max-w-2xl mx-auto p-4">
+      <div class="relative">
+          <img id="mainImage" src="./imgs/house/DSC_1139.jpeg" alt="Main Image" class="w-full h-96 object-cover  shadow-lg"> 
+      </div>
+
+      <div class="flex gap-2 mt-4 overflow-x-auto">
+          <img onclick="changeImage(this.src)" src="./imgs/house/DSC_0687.jpeg" alt="Thumbnail 1" class="w-24 h-24 object-cover  cursor-pointer">
+          <img onclick="changeImage(this.src)" src="./imgs/house/DSC_0750.jpeg" alt="Thumbnail 2" class="w-24 h-24 object-cover  cursor-pointer">
+          <img onclick="changeImage(this.src)" src="./imgs/house/DSC_0774.jpeg" alt="Thumbnail 3" class="w-24 h-24 object-cover cursor-pointer">
+          <img onclick="changeImage(this.src)" src="./imgs/house/DSC_1139.jpeg" alt="Thumbnail 4" class="w-24 h-24 object-cover  cursor-pointer">
+          <img onclick="changeImage(this.src)" src="./imgs/house/DSC_1098.jpeg" alt="Thumbnail 5" class="w-24 h-24 object-cover  cursor-pointer">
+          <img onclick="changeImage(this.src)" src="./imgs/house/DSC_1098.jpeg" alt="Thumbnail 5" class="w-24 h-24 object-cover  cursor-pointer">
+          <img onclick="changeImage(this.src)" src="./imgs/house/DSC_1098.jpeg" alt="Thumbnail 5" class="w-24 h-24 object-cover  cursor-pointer">
+          <img onclick="changeImage(this.src)" src="./imgs/house/DSC_1098.jpeg" alt="Thumbnail 5" class="w-24 h-24 object-cover  cursor-pointer">
+
+        </div>
+  </div>
+</div>
+
+<p>5-room villa 190 m2, south-west facing position. Modern furnishings: living/dining room 40
+  m2 with satellite TV (flat screen), air conditioning. Exit to the terrace. 2 rooms, each room
+  with 1 double bed (2 x 90 cm, length 210 cm), shower/WC and satellite TV (flat screen), air
+  conditioning. 1 room with 1 double bed (2 x 80 cm, length 200 cm), satellite TV (flat screen),
+  air conditioning. 1 room with 2 beds (90 cm, length 210 cm), satellite TV (flat screen), air
+  conditioning. Exit to the terrace. Open kitchen (oven, dishwasher, 4 ceramic glass hob
+  hotplates, kettle, microwave, freezer, electric coffee machine). 2 showers/WC. Forced-air
+  heating. 2 terraces 25 m2. Terrace furniture, deck chairs. View of the swimming pool.
+  Facilities: safe, children&#39;s high chair, baby cot, hair dryer. Internet (WiFi, free).</p>
+
+
+</div>
+    </section>
+    
+        <div class="max-w-6xl mx-auto p-6">
+            <h2 class="underline text-center pb-32" >Description</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center mb-8">
+                <div class="flex flex-col items-center">
+                    <img src="./imgs/svgs/house.svg" alt="Icon Type" class="mb-2 w-12 h-12">
+                    <p class="text-sm font-medium ">Type</p>
+                    <p class="text-sm text-gray-500">Villa</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img src="./imgs/svgs/guests.svg" alt="Icon Accommodation" class="mb-2 w-12 h-12">
+                    <p class="text-sm font-medium ">Accommodation</p>
+                    <p class="text-sm text-gray-500">10 Guests</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img src="./imgs/svgs/bedrooms.svg" alt="Icon Bedrooms" class="mb-2 w-12 h-12">
+                    <p class="text-sm font-medium ">Bedrooms</p>
+                    <p class="text-sm text-gray-500">4 Bedrooms / 5 Beds</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="./imgs/svgs/bathroom.svg" alt="Icon bathroom" class="mb-2 w-12 h-12">
+                  <p class="text-sm font-medium ">Bathroom</p>
+                  <p class="text-sm text-gray-500">3 Bathrooms </p>
+              </div>
+
+            </div>
+            <hr class=" mt-4 mr-auto ml-auto">
+
+            <div class="bg-white p-6  mb-8 lg:w-96">
+                <h2 class="text-2xl font-bold mb-4">About Villa Inizio</h2>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    With a living space of 320 m2, villa Inizio features 4 bedrooms furnished with double beds, 
+                    one located on the ground floor; two on the first floor while the functions as a separate studio apartment with a kitchen and a spacious terrace.
+                    There is a fold-out sofa in one of the bedrooms that provides an extra sleeping arrangement for two children. All bedrooms have their own bathroom 
+                    with a bathtub, shower enclosure, and underfloor heating.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    In the upstairs bathrooms, you can relax in comfortable tubs overlooking the sea. Guests of the villa have a modern fully equipped kitchen 
+                    with a spacious dining area and a cozy living room with a fireplace, beer bar, and wine bar at their disposal.
+                </p>
+                <hr class=" mt-4 mr-auto ml-auto">
+
+            </div>
+
+                <div class="bg-white p-6 lg:w-96">
+                    <h3 class="text-lg font-bold mb-4">Details</h3>
+                    <ul class="list-none text-gray-600 space-y-2">
+                        <li><span class="font-bold">Guests:</span> 10</li>
+                        <li><span class="font-bold">Bedrooms:</span> 4</li>
+                        <li><span class="font-bold">Beds:</span> 5 (Super King, Double)</li>
+                        <li><span class="font-bold">Bathrooms:</span> 4 Full + 1 Half</li>
+                    </ul>
+                    <hr class=" mt-4 mr-auto ml-auto">
+
+                </div>
+                <div class="bg-white p-6 lg:w-96">
+                    <h3 class="text-lg font-bold mb-4">Accommodation</h3>
+                    <ul class="list-none text-gray-600 space-y-2">
+                        <li><span class="font-bold">Check-In:</span> 14:00 – 00:00</li>
+                        <li><span class="font-bold">Check-Out:</span> 09:30 – 12:00</li>
+                        <li><span class="font-bold">Size:</span> 3200 sq.ft</li>
+                        <li><span class="font-bold">Meals:</span> Self Catering</li>
+                    </ul>
+
+                </div>
+                <hr class=" mt-4 mr-auto ml-auto">
+
+        </div>
+    <div class="map-container lg:ml-72 lg:mr-72 lg:mb-72 md:ml-72 md:mr-72 md:mb-72">
+        <div id="map" class=""></div>
+      </div>
+
+
+      <footer class="bg-gray-900 text-center text-white py-6">
+        <p>&copy; 2024 Villa Inizio. All Rights Reserved.</p>
+      </footer>
+
+
+
+
+
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+
+    function changeLanguage(lang, flagSrc) {
+      console.log(lang)
+      document.getElementById('current-flag').src = flagSrc; // Update the current flag image
+
+      // document.getElementById('hero-title').textContent = translations[lang].heroTitle;
+      // document.getElementById('hero-subtitle').textContent = translations[lang].heroSubtitle;
+      // document.getElementById('book-now').textContent = translations[lang].bookNow;
+      // document.getElementById('about-title').textContent = translations[lang].aboutTitle;
+      document.getElementById('about-text').textContent = translations[lang].aboutText;
+    }
+
+
+
+
+
+    //nav
+
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeMenu = document.getElementById('close-menu');
+
+      // Mobile menu toggle
+      document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    document.getElementById('close-menu').addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.add('hidden');
+    });
+
+  // Open Mobile Menu
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.remove('hidden');
+    mobileMenu.classList.add('scale-100');
+  });
+
+  // Close Mobile Menu
+  closeMenu.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+  });
+
+ 
+  </script>
+    </script>
+</body>
+
+                
