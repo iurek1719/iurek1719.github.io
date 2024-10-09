@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Villa Carisma Gallery</title>
-
-
+  <title>Villa Croatica - The Island of Vis</title>
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="./styles.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -48,27 +48,24 @@
       background-color: #f1f1f1;
     }
  
-
+.imagesbox{
+    position: relative;
+    top: 100px;
+}
   </style>
+<body class="">
 
-  
-<body >
-  <!-- Navigation Bar -->
-  <header class="text-white bg-gray-900 fixed w-full z-50">
+<header class="text-white bg-gray-900 fixed w-full z-50">
     <nav class="container mx-auto flex justify-between items-center">
-        <!-- Left Side - Title -->
         <h1 class="text-3xl font-bold">Villa Inizio</h1>
 
-        <!-- Right Side - Navigation Links and Mobile Menu Button -->
         <div class="flex items-center space-x-6">
-            <!-- Mobile Menu Button -->
             <button id="mobile-menu-toggle" class="block md:hidden focus:outline-none text-white">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
 
-            <!-- Desktop Menu -->
             <ul class="hidden md:flex space-x-6 items-center">
                 <li class="relative group">
                     <a href="./index.html" class="hover:text-blue-500 transition">Home</a>
@@ -79,11 +76,11 @@
                     <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
                 </li>
                 <li class="relative group">
-                    <a href="./gallery.html" class="hover:text-blue-500 transition active">Gallery</a>
+                    <a href="./gallery.html" class="hover:text-blue-500 transition">Gallery</a>
                     <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
                 </li>
                 <li class="relative group">
-                    <a href="./about-island.html" class="hover:text-blue-500 transition">City Info</a>
+                    <a href="./about-island.html" class="hover:text-blue-500 transition active">City Info</a>
                     <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
                 </li>
                 <li class="relative group">
@@ -111,7 +108,7 @@
         </div>
     </nav>
 
-    <!-- Full-Screen Mobile Menu -->
+
     <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-95 p-8 hidden z-40 flex items-center justify-center transform transition-transform duration-300 ease-in-out">
         <button id="close-menu" class="absolute top-5 right-5 text-white">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -119,11 +116,12 @@
             </svg>
         </button>
         <ul class="flex flex-col items-center space-y-8 text-2xl text-white">
-            <li><a href="./index.html" class="hover:text-blue-500 transition">Home</a></li>
-            <li><a href="./about.html" class="hover:text-blue-500 transition">About</a></li>
-            <li><a href="./gallery-brodarica.html" class="hover:text-blue-500 transition">Gallery</a></li>
-            <li><a href="./about-island.html" class="hover:text-blue-500 transition">City Info</a></li>
-            <li><a href="./contact.html" class="hover:text-blue-500 transition">Contact</a></li>
+            <ul class="flex flex-col items-center space-y-8 text-2xl text-white">
+                <li><a href="./index.html" class="hover:text-blue-500 transition">Home</a></li>
+                <li><a href="./about.html" class="hover:text-blue-500 transition">About</a></li>
+                <li><a href="./gallery-brodarica.html" class="hover:text-blue-500 transition">Gallery</a></li>
+                <li><a href="./about-island.html" class="hover:text-blue-500 transition">City Info</a></li>
+                <li><a href="./contact.html" class="hover:text-blue-500 transition">Contact</a></li>
            
             <div class="dropdown">
               <button class="focus:outline-none">
@@ -144,58 +142,52 @@
         </ul>
     </div>
 </header>
+
+
+
   <!-- Hero Section -->
-  <div class="relative"> 
-    <img src="./imgs/nature/beach1.jpg" alt="Aerial view" class="w-full h-[500px] object-cover">
-    <div class="absolute inset-0 flex items-center justify-center">
-      <h1 class="text-5xl text-white font-bold">Gallery</h1>
-    </div>
-  </div>
-  
-  <!-- Image Grid Section -->
-  <section class="py-12">
-    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6 ">
-      <!-- Gallery Villa Carisma -->
-      <div class="relative hover:scale-105 duration-300">
-        <img src="./imgs/house/DSC_1154.jpeg" alt="Villa Carisma" class="w-full h-[400px] object-cover  shadow-md">
-        <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
-          <a href="./gallery-inizio.html" class="text-3xl text-white font-semibold">Gallery Villa Inizio</a>
-        </div>
-      </div>
-      
-      <!-- Gallery Island VIS -->
-      <div class="relative hover:scale-105 duration-300">
-        <img src="./imgs/nature/krka_01_np_1900x950_ivo-biocina.jpg" alt="Brodarica" class="w-full h-[400px] object-cover  shadow-md">
-        <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
-          <a href="./gallery-brodarica.html" class="text-3xl text-white font-semibold">Gallery Brodarica</a>
-        </div>
-      </div>
+  <section class="relative h-[50vh] bg-cover bg-center" style="background-image: url('./imgs/nature/shutterstock490348345.jpg')">
+    <div class="absolute inset-0 bg-blue-900 bg-opacity-40 flex justify-center items-center">
+      <h1 class="text-4xl text-white font-bold">Šibenik, Croatia</h1>
     </div>
   </section>
 
-  <section id="contact-info" class="flex items-center justify-center py-16 ">
-    <div class="text-center px-6">
-      <h2 class="text-3xl font-semibold mb-6">Contact Us</h2>
-      <p class="text-lg mb-4">Feel free to reach out to us for any inquiries!</p>
-      
-      <div class="flex flex-col items-center">
-        <div class="mb-4">
-          <span class="font-bold text-lg">Email:</span>
-          <a href="mailto:info@villainizio.com" class="text-blue-500 hover:underline">inizio.info1@gmail.com</a>
-        </div>
-        <div>
-          <span class="font-bold text-lg">Phone:</span>
-          <a href="tel:+1234567890" class="text-blue-500 hover:underline">+1 (234) 567-890</a>
-        </div>
+  <!-- Main Content -->
+  <main class="container mx-auto py-12 px-4 lg:px-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- Text Content -->
+      <div>
+        <h2 class="text-2xl font-bold mb-4">Šibenik</h2>
+        <p class="text-lg mb-4">
+            Šibenik is situated in the central part of the Croatian Adriatic Coast, in the picturesque and indented bay where the Krka River, one of the most beautiful karst rivers in Croatia enters the sea. Today Šibenik, with 46,332 inhabitants, is the administrative, political, economic and socio-cultural center of the Šibenik-Knin County.
+
+            Šibenik and Knin County has 242 islands, islets and above-sea reefs. The most numerous group of islands are the Kornati, which are distinguished by their remarkable beauty known throughout the world.
+            
+            The Šibenik region is characterized by a Mediterranean climate with hot summers and dry and mild winters. In most parts of the Šibenik region, the most common winds are the bora-bura and the sirocco-jugo, and along the coastal belt there is even the refreshing onshore mistral-maestral.
+            
+            Šibenik is famous for its cultural and historical sights and natural beauties, and boasts two monuments under the protection of UNESCO, the Cathedral of St. James and the St. Nicholas' fortress as well as the two national parks, Krka and Kornati. There are even three fortresses in the city: St. Michael's, Barone, St. John's and St. Nicholas' on the sea side with a beautiful view over the St. Anthony's Channel and the city of Šibenik.
+        </p>
+   
+      </div>
+
+      <!-- Image Content -->
+      <div class="grid grid-cols-2 gap-4">
+        <img src="./imgs/nature/beach1.jpg" alt="Vis Beach" class="w-full h-auto rounded-lg shadow-lg">
+        <img src="./imgs/nature/krka-park-nacionalni.webp" alt="Krka Park" class="w-full h-auto rounded-lg shadow-lg">
+        <img src="./imgs/nature/Sibenik.jpg" alt="Vis Island" class="w-full h-auto rounded-lg shadow-lg">
+        <img src="./imgs/nature/Kornati-2-1.jpg" alt="Kornati" class="w-full h-auto rounded-lg shadow-lg">
       </div>
     </div>
-  </section>
-<footer class="bg-gray-900 text-center text-white py-6">
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-center text-white py-6">
     <p>&copy; 2024 Villa Inizio. All Rights Reserved.</p>
   </footer>
 
 
+  <script src="./js/functions.js"></script>
 
-<script src="./js/functions.js"></script>
-      </body>
+</body>
+
 </html>

@@ -79,11 +79,11 @@
                         <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
                     </li>
                     <li class="relative group">
-                        <a href="#info" class="hover:text-blue-500 transition">Island Info</a>
+                        <a href="./about-island.html" class="hover:text-blue-500 transition">City Info</a>
                         <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
                     </li>
                     <li class="relative group">
-                        <a href="#contact" class="hover:text-blue-500 transition">Contact</a>
+                        <a href="./contact.html" class="hover:text-blue-500 transition">Contact</a>
                         <span class="absolute left-0 right-0 bottom-0 h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transform transition-transform ease-in-out duration-300 origin-left"></span>
                     </li>
                     <div class="dropdown">
@@ -118,8 +118,8 @@
                 <li><a href="./index.html" class="hover:text-blue-500 transition">Home</a></li>
                 <li><a href="./about.html" class="hover:text-blue-500 transition">About</a></li>
                 <li><a href="./gallery.html" class="hover:text-blue-500 transition">Gallery</a></li>
-                <li><a href="#info" class="hover:text-blue-500 transition">Island Info</a></li>
-                <li><a href="#contact" class="hover:text-blue-500 transition">Contact</a></li>
+                <li><a href="./about-island.html" class="hover:text-blue-500 transition">City Info</a></li>
+                <li><a href="./contact.html" class="hover:text-blue-500 transition">Contact</a></li>
                 <div class="dropdown">
                   <button class="focus:outline-none">
                     <img id="current-flag" src="./imgs/flags/uk.png" alt="English Flag" class="w-8 h-8 rounded-full">
@@ -156,16 +156,16 @@
           <img onclick="changeImage(this.src)" src="./imgs/house/DSC_0750.jpeg" alt="Thumbnail 2" class="w-24 h-24 object-cover  cursor-pointer">
           <img onclick="changeImage(this.src)" src="./imgs/house/DSC_0774.jpeg" alt="Thumbnail 3" class="w-24 h-24 object-cover cursor-pointer">
           <img onclick="changeImage(this.src)" src="./imgs/house/DSC_1139.jpeg" alt="Thumbnail 4" class="w-24 h-24 object-cover  cursor-pointer">
-          <img onclick="changeImage(this.src)" src="./imgs/house/DSC_1098.jpeg" alt="Thumbnail 5" class="w-24 h-24 object-cover  cursor-pointer">
-          <img onclick="changeImage(this.src)" src="./imgs/house/DSC_1098.jpeg" alt="Thumbnail 5" class="w-24 h-24 object-cover  cursor-pointer">
-          <img onclick="changeImage(this.src)" src="./imgs/house/DSC_1098.jpeg" alt="Thumbnail 5" class="w-24 h-24 object-cover  cursor-pointer">
-          <img onclick="changeImage(this.src)" src="./imgs/house/DSC_1098.jpeg" alt="Thumbnail 5" class="w-24 h-24 object-cover  cursor-pointer">
+          <img onclick="changeImage(this.src)" src="./imgs/house/DSC_1154.jpeg" alt="Thumbnail 5" class="w-24 h-24 object-cover  cursor-pointer">
+          <img onclick="changeImage(this.src)" src="./imgs/house/DSC_1140.jpeg" alt="Thumbnail 5" class="w-24 h-24 object-cover  cursor-pointer">
+          <img onclick="changeImage(this.src)" src="./imgs/house/DSC_1105.jpeg" alt="Thumbnail 5" class="w-24 h-24 object-cover  cursor-pointer">
+          <img onclick="changeImage(this.src)" src="./imgs/house/DSC_1123.jpeg" alt="Thumbnail 5" class="w-24 h-24 object-cover  cursor-pointer">
 
         </div>
   </div>
 </div>
 
-<p>5-room villa 190 m2, south-west facing position. Modern furnishings: living/dining room 40
+<p class="mt-10 p-10">5-room villa 190 m2, south-west facing position. Modern furnishings: living/dining room 40
   m2 with satellite TV (flat screen), air conditioning. Exit to the terrace. 2 rooms, each room
   with 1 double bed (2 x 90 cm, length 210 cm), shower/WC and satellite TV (flat screen), air
   conditioning. 1 room with 1 double bed (2 x 80 cm, length 200 cm), satellite TV (flat screen),
@@ -260,6 +260,8 @@
 
 
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        <script src="js/functions.js"></script>
+
     <script>
 
     function changeLanguage(lang, flagSrc) {

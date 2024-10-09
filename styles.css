@@ -53,11 +53,15 @@ body {
     background: linear-gradient(180deg, rgba(0,0,0,0), #0b0b0b4b);
 
   }
+.button-color{
+  background-color: #143c63 !important;
 
+}
   .active{
     text-decoration-line: underline;
     text-decoration-color:  rgb(59 130 246);
     text-decoration-thickness: 5px;
+    text-underline-offset: 5px;
   }
 
   
